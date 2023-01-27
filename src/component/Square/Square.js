@@ -1,12 +1,17 @@
 import React from 'react';
 import './Square.css';
-import { handleBoxClick } from '../../context/GameContext.js';
+import { useGameContext } from '../../context/GameContext.js';
 
-export default function Square({ square }) {
+export default function Square({ square, index }) {
+  const { handleBoxClick } = useGameContext();
   return (
-    <div className="box" onClick={handleBoxClick}>
-      {' '}
-      {square}{' '}
+    <div
+      className="box"
+      onClick={() => {
+        handleBoxClick(index);
+      }}
+    >
+      {square}
     </div>
   );
 }

@@ -3,4 +3,10 @@
   width: 100px;
   background-color: rgb(245, 164, 218);
   border-radius: 10px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: bolder;
 }

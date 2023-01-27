@@ -5,19 +5,44 @@ const { createContext } = require('react');
 
 const GameContext = createContext();
 
-const handleBoxClick = () => {
-  console.log('clicked!');
-};
-
 const GameProvider = ({ children }) => {
   const [player, setPlayer] = useState('X');
   const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
-  const [Active, setActive] = useState('true');
+  const [active, setActive] = useState('true');
   const [Message, setMessage] = useState('Your turn X!');
+
+  const handleBoxClick = (index) => {
+    if (!active) return;
+    if (board[index] !== '') return;
+    const newBoard = [...board];
+    newBoard[index] = player;
+    setBoard(newBoard);
+
+    let newPlayer = null;
+    if (player === 'X') {
+      newPlayer = 'O';
+    }
+    if (player === 'O') {
+      newPlayer = 'X';
+    }
+    setPlayer(newPlayer);
+
+    setMessage(`Your turn, ${newPlayer}.`);
+  };
 
   return (
     <GameContext.Provider
-      value={{ player, setPlayer, board, setBoard, Active, setActive, Message, setMessage }}
+      value={{
+        handleBoxClick,
+        player,
+        setPlayer,
+        board,
+        setBoard,
+        active,
+        setActive,
+        Message,
+        setMessage,
+      }}
     >
       {children}
     </GameContext.Provider>
@@ -33,4 +58,4 @@ const useGameContext = () => {
   return context;
 };
 
-export { GameProvider, useGameContext, handleBoxClick };
+export { GameProvider, useGameContext };
