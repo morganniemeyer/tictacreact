@@ -104,9 +104,16 @@ const GameProvider = ({ children }) => {
       setMessage(`You win ${newPlayer}!`);
     }
   };
+  const tieConditions = () => {
+    if (!board.includes('')) {
+      setActive(false);
+      setMessage('Womp, womp. Everyone loses.');
+    }
+  };
 
   const checkStatus = () => {
     if (!active) return;
+    tieConditions();
     winConditions();
   };
   checkStatus();
