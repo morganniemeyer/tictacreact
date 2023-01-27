@@ -5,6 +5,10 @@ const { createContext } = require('react');
 
 const GameContext = createContext();
 
+const handleBoxClick = () => {
+  console.log('clicked!');
+};
+
 const GameProvider = ({ children }) => {
   const [player, setPlayer] = useState('X');
   const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
@@ -29,4 +33,4 @@ const useGameContext = () => {
   return context;
 };
 
-export { GameProvider, useGameContext };
+export { GameProvider, useGameContext, handleBoxClick };
