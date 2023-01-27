@@ -30,6 +30,13 @@ const GameProvider = ({ children }) => {
     setMessage(`Your turn, ${newPlayer}.`);
   };
 
+  const handleReset = () => {
+    setActive('true');
+    setBoard(['', '', '', '', '', '', '', '', '']);
+    setMessage('Your turn X!');
+    setPlayer('X');
+  };
+
   const winConditions = () => {
     let newPlayer = null;
     if (player === 'X') {
@@ -122,6 +129,7 @@ const GameProvider = ({ children }) => {
     <GameContext.Provider
       value={{
         handleBoxClick,
+        handleReset,
         player,
         setPlayer,
         board,
