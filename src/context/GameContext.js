@@ -7,11 +7,17 @@ const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
   const [player, setPlayer] = useState('X');
-  const [Board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
+  const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
   const [Active, setActive] = useState('true');
   const [Message, setMessage] = useState('Your turn X!');
 
-  return <GameContext.Provider>{children}</GameContext.Provider>;
+  return (
+    <GameContext.Provider
+      value={{ player, setPlayer, board, setBoard, Active, setActive, Message, setMessage }}
+    >
+      {children}
+    </GameContext.Provider>
+  );
 };
 
 const useGameContext = () => {
