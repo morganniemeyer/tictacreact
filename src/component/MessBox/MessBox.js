@@ -12,7 +12,7 @@ export default function MessBox() {
             handleReset();
           }}
         >
-          Reset
+          Play Again!
         </button>
       </div>
     );
