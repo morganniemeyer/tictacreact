@@ -38,7 +38,7 @@
 }
 .allofit {
   display: flex;
-  justify-content: center;
+  padding-top: 45px;
   flex-direction: column;
   align-items: center;
   background-color: #adf8ee;
