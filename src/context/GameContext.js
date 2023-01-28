@@ -82,11 +82,11 @@ const GameProvider = ({ children }) => {
       setActive(false);
       setMessage(`You win ${newPlayer}!`);
     }
-    if (board[0] === board[4] && board[4] === board[8] && board[8] === '0') {
+    if (board[0] === board[4] && board[4] === board[8] && board[8] === 'O') {
       setActive(false);
       setMessage(`You win ${newPlayer}!`);
     }
-    if (board[0] === board[3] && board[3] === board[6] && board[6] === '0') {
+    if (board[0] === board[3] && board[3] === board[6] && board[6] === 'O') {
       setActive(false);
       setMessage(`You win ${newPlayer}!`);
     }

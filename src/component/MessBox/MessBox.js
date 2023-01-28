@@ -1,11 +1,12 @@
 import React from 'react';
 import { useGameContext } from '../../context/GameContext.js';
+import './MessBox.css';
 
 export default function MessBox() {
   const { message, active, handleReset } = useGameContext();
   if (!active) {
     return (
-      <div>
+      <div className="messBox">
         <h2>{message}</h2>
         <button
           onClick={() => {

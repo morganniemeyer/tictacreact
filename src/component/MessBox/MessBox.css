@@ -1,0 +1,4 @@
+.messBox {
+  display: flex;
+  flex-direction: column;
+}
